@@ -1,26 +1,26 @@
+# Use Node.js 18 LTS
+FROM node:18-alpine
+
 # Set working directory
 WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
 
-# Install full dependencies (incl. dev for tsc)
-RUN npm ci
+# Install dependencies
+RUN npm ci --only=production
 
-# Copy the rest of the app
+# Copy source code
 COPY . .
 
-# Build the app (needs tsc from devDependencies)
+# Build the application
 RUN npm run build
-
-# Now prune devDependencies
-RUN npm prune --production
 
 # Expose the port
 EXPOSE 8000
 
-# Set environment
+# Set environment to production
 ENV NODE_ENV=production
 
-# Start the app
-CMD ["npm", "start"]`
+# Start the HTTP server
+CMD ["npm", "start"]
