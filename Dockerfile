@@ -20,7 +20,7 @@ RUN npm run build
 RUN npm prune --production
 
 #Expose the port
-EXPOSE 8080
+EXPOSE 8000
 
 #Set environment
 ENV NODE_ENV=production
