@@ -401,7 +401,8 @@ export class GHLApiClient {
         'Authorization': `Bearer ${config.accessToken}`,
         'Version': config.version,
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Accept-Encoding': 'identity'
       },
       timeout: 30000 // 30 second timeout
     });
