@@ -402,7 +402,7 @@ export class GHLApiClient {
         'Version': config.version,
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'Accept-Encoding': 'identity'
+        'Accept-Encoding': 'gzip,deflate'
       },
       timeout: 30000 // 30 second timeout
     });
