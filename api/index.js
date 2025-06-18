@@ -240,7 +240,7 @@ module.exports = async (req, res) => {
       'Cache-Control': 'no-cache',
       'Connection': 'keep-alive',
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'Content-Type, Accept',
+      'Access-Control-Allow-Headers': 'Content-Type, Accept, Authorization',
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS'
     });
     
