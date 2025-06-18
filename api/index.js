@@ -229,7 +229,17 @@ module.exports = async (req, res) => {
     res.status(404).end();
     return;
   }
-  
+  // Handle explicit OPTIONS preflight for /sse
+  if (req.url === '/sse' && req.method === 'OPTIONS') {
+    res.writeHead(204, {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Accept, Authorization',
+      'Access-Control-Max-Age': '86400',
+    });
+    res.end();
+    return;
+  }
   // MCP SSE endpoint
   if (req.url === '/sse') {
     log("MCP SSE endpoint requested");
