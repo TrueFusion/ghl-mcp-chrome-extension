@@ -117,11 +117,11 @@ class GHLMCPHttpServer {
   private setupExpress(): void {
     // Enable CORS for ChatGPT integration
     this.app.use(cors({
-      origin: ['https://chatgpt.com', 'https://chat.openai.com', 'http://localhost:*'],
-      methods: ['GET', 'POST', 'OPTIONS'],
-      allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
-      credentials: true
-    }));
+  origin: '*',
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
+  credentials: false  // Set to false when using origin: '*'
+}));
 
     // Parse JSON requests
     this.app.use(express.json());
